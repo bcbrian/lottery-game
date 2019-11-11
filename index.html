@@ -34,7 +34,11 @@
       </div>
       <div class="row mt-3">
         <div class="col-12">
-          <button type="button" class="btn btn-primary btn-lg btn-block">
+          <button
+            type="button"
+            class="btn btn-primary btn-lg btn-block"
+            onclick="handleClick('str', 9827345, true)"
+          >
             Large button
           </button>
         </div>
@@ -47,5 +51,35 @@
         </div>
       </div>
     </div>
+
+    <script>
+      function handleClick(str, num, bool) {
+        // const str = "str";
+        const carMake = "honda";
+        const carModel = "accord";
+        const carYear = 1997;
+        let mileage = 280000;
+
+        const car = {
+          make: "toyota",
+          model: "celica",
+          year: 2002,
+          mileage: 10000,
+          tires: [
+            { airPressure: 30 },
+            { airPressure: 30 },
+            { airPressure: 30 },
+            { airPressure: 30 }
+          ],
+          getMileage: function() {
+            return this.mileage;
+          }
+        };
+
+        car.make = "ferrari";
+
+        alert(car.getMileage());
+      }
+    </script>
   </body>
 </html>
