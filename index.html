@@ -24,6 +24,7 @@
               >
             </div>
             <input
+              id="user-number"
               type="text"
               class="form-control"
               aria-label="Sizing example input"
@@ -37,7 +38,7 @@
           <button
             type="button"
             class="btn btn-primary btn-lg btn-block"
-            onclick="handleClick('str', 9827345, true)"
+            onclick="handleClick()"
           >
             Large button
           </button>
@@ -53,32 +54,12 @@
     </div>
 
     <script>
-      function handleClick(str, num, bool) {
-        // const str = "str";
-        const carMake = "honda";
-        const carModel = "accord";
-        const carYear = 1997;
-        let mileage = 280000;
+      function handleClick() {
+        const inputEl = document.getElementById("user-number");
+        console.log(inputEl);
 
-        const car = {
-          make: "toyota",
-          model: "celica",
-          year: 2002,
-          mileage: 10000,
-          tires: [
-            { airPressure: 30 },
-            { airPressure: 30 },
-            { airPressure: 30 },
-            { airPressure: 30 }
-          ],
-          getMileage: function() {
-            return this.mileage;
-          }
-        };
-
-        car.make = "ferrari";
-
-        alert(car.getMileage());
+        const userInput = inputEl.value;
+        console.log(userInput);
       }
     </script>
   </body>
