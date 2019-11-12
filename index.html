@@ -54,29 +54,46 @@
     </div>
 
     <script>
-      // function startGame(){
-      //   const numberToGuess =
-      // }
-      // startGame();
-
-      function handleClick() {
-        const inputEl = document.getElementById("user-number");
-
-        const userInput = inputEl.value;
-
-        const winnerEl = document.getElementById("winner");
-
+      function startGame() {
         // index starts at 0
         const numbers = ["1", "2", "3", "4", "5"];
         const randomIndex = Math.floor(Math.random() * numbers.length);
         console.log(randomIndex);
+        const numberToGuess = numbers[randomIndex];
+        console.log("numberToGuess", numberToGuess);
 
-        if (userInput === numbers[randomIndex]) {
-          winnerEl.innerHTML = "winner";
-        } else {
-          winnerEl.innerHTML = "loser";
+        const guesses = [];
+
+        function handleClick() {
+          const inputEl = document.getElementById("user-number");
+          const userInput = inputEl.value;
+          const winnerEl = document.getElementById("winner");
+
+          if (userInput === numberToGuess) {
+            winnerEl.innerHTML = "winner";
+          } else {
+            // if (guesses.indexOf(userInput) > -1) {
+            //   return alert("Yo buddy you did this already!");
+            // }
+            if (guesses.includes(userInput)) {
+              alert("Yo buddy you did this already!");
+              return;
+            }
+            guesses.push(userInput);
+            console.log(guesses);
+            let message = "You guessed: ";
+            for (let i = 0; i < guesses.length; i++) {
+              const guess = guesses[i];
+              console.log(guess);
+              message = message + guess + ", ";
+            }
+            winnerEl.innerHTML = message;
+          }
         }
+
+        window.handleClick = handleClick;
       }
+      startGame();
     </script>
   </body>
 </html>
