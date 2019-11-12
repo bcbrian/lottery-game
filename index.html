@@ -47,19 +47,35 @@
       <div class="row mt-5">
         <div class="col-12">
           <div class="jumbotron">
-            <h1 class="display-4 text-center">Winner</h1>
+            <h1 id="winner" class="display-4 text-center">Winner</h1>
           </div>
         </div>
       </div>
     </div>
 
     <script>
+      // function startGame(){
+      //   const numberToGuess =
+      // }
+      // startGame();
+
       function handleClick() {
         const inputEl = document.getElementById("user-number");
-        console.log(inputEl);
 
         const userInput = inputEl.value;
-        console.log(userInput);
+
+        const winnerEl = document.getElementById("winner");
+
+        // index starts at 0
+        const numbers = ["1", "2", "3", "4", "5"];
+        const randomIndex = Math.floor(Math.random() * numbers.length);
+        console.log(randomIndex);
+
+        if (userInput === numbers[randomIndex]) {
+          winnerEl.innerHTML = "winner";
+        } else {
+          winnerEl.innerHTML = "loser";
+        }
       }
     </script>
   </body>
